@@ -1,16 +1,37 @@
 baseURL = "https://mynewhugosite.com"
-title = "My New Hugo Site"
-theme = "hugo-starter"
+title = "My Hugo Site"
+theme = "kaleidoscope"
+
+favicon = "/favicon.ico"
+start = "2023"
+featured = true
+
+enableGitInfo = true
+[frontmatter]
+date = ["date", "publishDate", "lastmod"]
+lastmod = ["lastmod", ":git", "date", "publishDate"]
+
+[related]
+  includeNewer = true
+  threshold = 0
+  toLower = false
+[[related.indices]]
+  name = 'categories'
+  weight = 100
+[[related.indices]]
+  name = 'tags'
+  weight = 50
+[[related.indices]]
+  name = 'date'
+  weight = 10
 
 [menu]
   [[menu.main]]
-    identifier = "posts"
-    name = "Posts"
-    url = "/posts"
-    weight = 10
+    name = "Home"
+    url = "/"
+    weight = 1
 
   [[menu.main]]
-    identifier = "about"
     name = "About"
     url = "/about"
-    weight = 20
+    weight = 2

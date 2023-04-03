@@ -1,0 +1,17 @@
+<div class="header">
+  <h1 class="brand-title">
+    {{ .Site.Title }}
+  </h1>
+  {{ with .Site.Params.description }}<p class="brand-tagline">{{ .Site.Params.description }}</p>{{ end }}
+  <nav class="nav">
+    <ul class="nav-list">
+      {{ range.Site.Menus.main }}
+      <li class="nav-item">
+        <a class="pure-button" href="{{ .URL }}">
+          {{ .Name }}
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </nav>
+</div>
