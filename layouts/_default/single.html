@@ -27,6 +27,8 @@
     </div>
   </header>
 
+  {{ partial "toc" . }}
+
   {{ .Content }}
 
   {{ with .GetTerms "tags" }}

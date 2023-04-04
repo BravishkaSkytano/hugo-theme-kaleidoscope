@@ -1,0 +1,14 @@
+{{ define "main" }}
+
+<div class="content-subhead">{{ .Title }}</div>
+
+<section class="post">
+  <ul>
+  {{ $data := .Data }}
+  {{ range $key, $value := .Data.Terms.ByCount }}
+    <li><a href="/{{ $data.Plural }}/{{ $value.Name | urlize }}">{{ $value.Name }}</a> {{ $value.Count }}</li>
+  {{ end }}
+  </ul>
+</section>
+
+{{ end }}

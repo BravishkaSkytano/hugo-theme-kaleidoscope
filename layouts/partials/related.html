@@ -1,9 +1,18 @@
 {{ $related := .Site.RegularPages.Related . | first 5 }}
 {{ with $related }}
 <h2>Related</h2>
-<ul>
- {{ range . }}
- <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
- {{ end }}
-</ul>
+<div class="related-posts">
+  <div class="cards">
+    {{ range . }}
+    <div class="card">
+      <div class="card-content">
+        <h3>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h3>
+        {{ .Summary }}
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
 {{ end }}

@@ -4,7 +4,6 @@ theme = "kaleidoscope"
 
 favicon = "/favicon.ico"
 start = "2023"
-featured = true
 
 enableGitInfo = true
 [frontmatter]
