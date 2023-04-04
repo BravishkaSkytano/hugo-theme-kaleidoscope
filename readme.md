@@ -31,6 +31,30 @@ cp -r themes/kaleidoscope/exampleSite/* ./
 
 To learn more about building themes in Hugo, refer to Hugo's [templating documentation](https://gohugo.io/templates/).
 
+## Keeping your site up-to-date when theme is updated using GitHub Actions
+
+This works for both Git Submodules and Go Modules, you just need to specify which one you want to use by [enabling and configuring Dependabot](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file).
+
+```yml
+version: 2
+updates:
+  # Enable version updates for git submodules
+  - package-ecosystem: "gitsubmodule"
+    # Look for submodules in the root directory
+    directory: "/"
+    # Check for updates once a week (on Monday)
+    schedule:
+      interval: "weekly"
+
+  # Enable version updates for Go Modules
+  - package-ecosystem: "gomod"
+    # Look for a Go Modules in the `root` directory
+    directory: "/"
+    # Check for updates once a week
+    schedule:
+      interval: "weekly"
+```
+
 ## To-Do
 
 - [ ] Upload images of different themes
