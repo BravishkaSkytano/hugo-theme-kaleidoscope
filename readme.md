@@ -10,6 +10,7 @@ A beautiful blog theme that changes color based on the time of day.
 * [Fleur De Leah](https://fonts.google.com/specimen/Fleur+De+Leah) and [Playfair Display](https://fonts.google.com/specimen/Playfair+Display) fonts.
 * 4 different colors schemes that change to match the morning, day, evening, and night.
 * Supports lastmod
+* Featured posts with `featured: true` in frontmatter
 * Related posts
 * Taxonomy pages
 * TOC with `toc: true` in frontmatter
@@ -23,10 +24,10 @@ git submodule init
 git submodule add https://github.com/BravishkaSkytano/hugo-theme-kaleidoscope.git themes/kaleidoscope
 ```
 
-If you'd like some example content and an example config file to get started, you can copy the `exampleSite` directory into your root Hugo directory.
+Copy example config file to get started.
 
 ```bash
-cp -r themes/kaleidoscope/exampleSite/* ./
+cp -r themes/kaleidoscope/exampleSite/config.toml ./config.toml
 ```
 
 To learn more about building themes in Hugo, refer to Hugo's [templating documentation](https://gohugo.io/templates/).
@@ -63,5 +64,6 @@ updates:
 - [ ] Add comments
 - [ ] Configure search
 - [ ] Configure RSS
+- [X] Featured posts
 - [X] Related posts
 - [X] TOC

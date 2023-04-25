@@ -5,9 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="robots" content="index, follow">
 	<meta charset="utf-8"><link rel="canonical" href="{{ .Site.BaseURL }}">
-	
+
   <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} RSS" href="/index.xml">
-  
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css">
   {{ $sass := resources.Get "scss/kaleidoscope.scss" }}
@@ -15,14 +15,14 @@
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 	{{ with .Site.Params.favicon }}<link rel="icon" href="{{ . }}">
 	{{ end -}}
-	
+
   <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
 	{{ if isset .Params "tags" }}<meta name="keywords" content="{{ with .Params.tags }}{{ delimit . ", " }}{{ end }}">
 	{{ end -}}
-  
-  <link href="/fontawesome/css/fontawesome.min.css" rel="stylesheet">
-  <link href="/fontawesome/css/solid.min.css" rel="stylesheet">
-  
+
+  <link href="{{ relURL "fontawesome/css/fontawesome.min.css" }}" rel="stylesheet">
+  <link href="{{ relURL "fontawesome/css/solid.min.css" }}" rel="stylesheet">
+
   <script type="text/javascript">
     const hour = (new Date()).getHours();
       var element = document.documentElement;

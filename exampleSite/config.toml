@@ -1,11 +1,12 @@
 baseURL = "https://mynewhugosite.com"
 title = "My Hugo Site"
-theme = "kaleidoscope"
+theme = "hugo-theme-kaleidoscope"
 
 [params]
   description = "My site description."
   favicon = "/favicon.ico"
   start = "2023"
+  featured = true
 
 enableGitInfo = true
 [frontmatter]
@@ -36,17 +37,17 @@ lastmod = ["lastmod", ":git", "date", "publishDate"]
     name = "About"
     url = "/about"
     weight = 2
-  
+
   [[menu.main]]
     name = "Posts"
     url = "posts"
     weight = 3
-  
+
   [[menu.main]]
     name = "Categories"
     url = "/categories"
     weight = 4
-  
+
   [[menu.main]]
     name = "Tags"
     url = "/tags"
