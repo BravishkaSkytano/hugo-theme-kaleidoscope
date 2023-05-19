@@ -1,24 +1,21 @@
 {{ define "main" }}
-
-{{ .Content }}
-
-{{ if .Site.Params.featured }}
-<div class="content-subhead">Featured Posts</div>
-<div class="posts">
-  {{ range where .Site.RegularPages ".Params.featured" "=" true }}
-  {{ partial "posts-list" . }}
+<article class="pa3 pa4-ns nested-copy-line-height">
+  {{ with .Content }}
+  <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy">
+    {{ . }}
+  </section>
+  {{ end }}{{ if .Site.Params.featured_posts }}
+  <section class="flex-ns flex-wrap justify-around mt5 pv4 bb b--black-10 ph3 ph0-l">
+    {{ range where (where .Site.RegularPages.ByLastmod "Type" "in" site.Params.mainSections) ".Params.featured" "=" true }}
+      {{ partial "posts-list.html" . }}
+    {{ end }}
+  </section>
   {{ end }}
-{{ end }}
-<div class="content-subhead">Recent Posts</div>
-<div class="posts">
-  {{ range first 10 (where .Site.RegularPages ".Params.featured" "!=" true) }}
-  {{ partial "posts-list" . }}
+  <section class="flex-ns flex-wrap justify-around mt5">
+  {{ range first 15 (where (where .Site.RegularPages.ByLastmod "Type" "in" site.Params.mainSections) ".Params.featured" "!=" true ) }}
+    {{ partial "posts-list.html" . }}
   {{ end }}
-</div>
-
-
-<div style="text-align: center;">
-  <a class="pure-button" href="/posts">All Posts</a>
-</div>
+  </section>
+</article>
 
 {{ end }}

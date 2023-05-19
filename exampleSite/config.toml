@@ -3,10 +3,49 @@ title = "My Hugo Site"
 theme = "hugo-theme-kaleidoscope"
 
 [params]
-  description = "My site description."
-  favicon = "/favicon.ico"
-  start = "2023"
-  featured = true
+  mainSections = ['posts']
+  body_classes = ""
+  # choose fonts from
+  main_font = ""
+  title_font = ""
+  header_font = ""
+  # choose colors from https://tachyons.io/docs/themes/skins/
+  text_color = ""
+  card_bg_color = ""
+  link_color = ""
+  button_color = ""
+  button_text_color = ""
+  author = "Bravishka Skytano"
+  favicon = ""
+  site_logo = ""
+  description = "The most colorful Hugo theme you will ever find."
+  featured_posts = true
+  
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    name = "About"
+    url = "/about"
+    weight = 2
+
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts"
+    weight = 3
+
+  [[menu.main]]
+    name = "Categories"
+    url = "/categories"
+    weight = 4
+
+  [[menu.main]]
+    name = "Tags"
+    url = "/tags"
+    weight = 5
 
 enableGitInfo = true
 [frontmatter]
@@ -26,29 +65,3 @@ lastmod = ["lastmod", ":git", "date", "publishDate"]
 [[related.indices]]
   name = 'date'
   weight = 10
-
-[menu]
-  [[menu.main]]
-    name = "Home"
-    url = "/"
-    weight = 1
-
-  [[menu.main]]
-    name = "About"
-    url = "/about"
-    weight = 2
-
-  [[menu.main]]
-    name = "Posts"
-    url = "posts"
-    weight = 3
-
-  [[menu.main]]
-    name = "Categories"
-    url = "/categories"
-    weight = 4
-
-  [[menu.main]]
-    name = "Tags"
-    url = "/tags"
-    weight = 5

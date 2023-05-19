@@ -1,19 +1,8 @@
-<footer>
-	<p>
-		
-	</p>
-	<nav class="nav">
-    <ul class="nav-list">
-			<li class="nav-item">
-				&copy; {{ .Site.Params.start }}&ndash;{{ dateFormat "06" now }}. {{ .Site.Title }}
-			</li>
-      {{ range.Site.Menus.main }}
-      <li class="nav-item">
-        &middot; <a href="{{ .URL }}">
-          {{ .Name }}
-        </a>
-      </li>
-      {{ end }}
-    </ul>
-  </nav>
+<footer class="pv4 ph3 ph5-m ph6-l">
+  <small class="f6 db tc">© {{ dateFormat "2006" now }} <b class="ttu">{{ .Site.Title }}</b>. All Rights Reserved</small>
+  <div class="tc mt3">
+    {{ range.Site.Menus.main }}
+    <a href="{{ .URL }}" title="{{ .Name }}" class="f6 f5-l dib ph2 link dim {{ $.Param "text_color"  | default "black-80"}}">{{ .Name }}</a>
+    {{ end }}
+  </div>
 </footer>

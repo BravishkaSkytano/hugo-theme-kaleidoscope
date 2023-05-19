@@ -1,12 +1,16 @@
 {{ define "main" }}
 
-<div class="content-subhead">{{ .Title }}</div>
-
-<section class="post">
-  <ul>
-  {{ $data := .Data }}
-  {{ range $key, $value := .Data.Terms.ByCount }}
-    <li><a href="/{{ $data.Plural }}/{{ $value.Name | urlize }}">{{ $value.Name }}</a> {{ $value.Count }}</li>
+<section class="measure-wide db center f5 f4-ns">
+  <header class="mt4 w-100 tc-l">
+    <h1 class="f1 mt3 mb1 {{ $.Param "header_font"  | default "baskerville"}}">
+      {{ .Title }}
+    </h1>
+  </header>
+  <ul class="list tc ph3 ph5-ns pv4">
+  {{ range .Data.Terms.Alphabetical }}
+    <li class="dib mr1 mb2">
+      <a href="{{ .Page.RelPermalink }}" class="f6 f5-ns b db link dim br3 ph3 pv2 mb2 dib {{ $.Param "button_text_color" | default "white" }} bg-{{ $.Param "button_color" | default "black-80" }}">{{ .Page.Title }} ({{ .Count }})</a>
+    </li>
   {{ end }}
   </ul>
 </section>

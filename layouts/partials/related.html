@@ -1,26 +1,16 @@
 {{ $related := .Site.RegularPages.Related . | first 5 }}
+
 {{ with $related }}
-<h2>Related</h2>
-<div class="related-posts">
-  <div class="cards">
-    {{ range . }}
-    <div class="card">
-      <div class="card-content">
-        <h3>
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        </h3>
-        <p>
-          {{ $date := .Date.Format "Monday, Jan 2, '06" }}
-          {{ $lastmod := .Lastmod.Format "Monday, Jan 2, '06" }}
-          <i class="fa-solid fa-clock"></i> <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ $date }}</time>
-          {{ if and (ne $lastmod $date) (gt .Lastmod .Date) }}
-          <br/><i class="fa-solid fa-clock-rotate-left"></i> <time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ $lastmod }}</time>
-          {{ end }}
-        </p>
-        {{ .Summary }}
-      </div>
-    </div>
-    {{ end }}
-  </div>
+  <div class="bg-{{ $.Param "card_bg_color" | default "light-gray" }} pa3 nested-list-reset nested-copy-line-height nested-links">
+  <p class="f5 b mb3">See Also:</p>
+  <ul class="pa0 list">
+  {{ range . }}
+    <li  class="mb2">
+      <a href="{{ .RelPermalink }}" class="link dim {{ $.Param "link_color" | default "near-black" }}">
+        {{ .Title }}
+      </a>
+    </li>
+  {{ end }}
+  </ul>
 </div>
 {{ end }}
