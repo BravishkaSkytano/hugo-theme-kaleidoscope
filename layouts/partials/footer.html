@@ -2,7 +2,7 @@
   <small class="f6 db tc">© {{ dateFormat "2006" now }} <b class="ttu">{{ .Site.Title }}</b>. All Rights Reserved</small>
   <div class="tc mt3">
     {{ range.Site.Menus.main }}
-    <a href="{{ .URL }}" title="{{ .Name }}" class="f6 f5-l dib ph2 link dim {{ $.Param "text_color"  | default "black-80"}}">{{ .Name }}</a>
+    <a href="{{ .URL }}" title="{{ .Name }}" class="f6 f5-l dib ph2 link dim {{ $.Param "text_color"  | default "near-black"}}">{{ .Name }}</a>
     {{ end }}
   </div>
 </footer>

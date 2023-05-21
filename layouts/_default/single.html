@@ -17,23 +17,20 @@
     </p>
     {{ end }}
     {{ if not .Date.IsZero }}
-    {{ if ne .Lastmod .Date }}<span class="f6 mv4 dib tracked">First Published: </span>{{ end }}
-    <time class="f6 mv4 dib tracked" {{ printf `datetime="%s"` (.Lastmod.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr }}>
-      {{- .Lastmod | time.Format (default "January 2, 2006" .Site.Params.date_format) -}}
+    <time class="f6 mv4 dib tracked" {{ printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr }}>
+      {{- .Date | time.Format (default "Jan 2, 2006" .Site.Params.date_format) -}}
     </time>
     {{ end }}{{ if ne .Lastmod .Date }}
-    <span class="f6 mv4 dib tracked">Last Updated: </span>
-    <time class="f6 mv4 dib tracked" {{ printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr }}>
-      {{- .Date | time.Format (default "January 2, 2006" .Site.Params.date_format) -}}
+    <span class="f6 mv4 dib tracked">- Updated: </span>
+    <time class="f6 mv4 dib tracked" {{ printf `datetime="%s"` (.Lastmod.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr }}>
+      {{- .Lastmod | time.Format (default "Jan 2, 2006" .Site.Params.date_format) -}}
     </time>
     {{ end }}
-    {{ with .GetTerms "categories" }}{{ range . }}
-    <span class="ttc">
-      - <a class="link dim f6 mv4 dib tracked {{ $.Param "link_color" | default "near-black" }}" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-    </span>
-    {{ end }}{{ end }}
     <span class="f6 mv4 dib tracked"> - {{ .ReadingTime }} min.</span>
     <span class="f6 mv4 dib tracked"> - {{ .WordCount }} words</span>
+    {{ with .GetTerms "categories" }}-{{ range . }}
+    <a class="f6 link dim ttc br2 pa1 dib tracked {{ $.Param "button_text_color" | default "white" }} bg-{{ $.Param "button_color" | default "near-black" }}" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    {{ end }}{{ end }}
   </header>
   <div class="pb3">
     {{ partial "toc" . }}
@@ -43,7 +40,7 @@
   {{ with .GetTerms "tags" }}
   <div class="flex-ns flex-wrap justify-around mt3">
   {{ range . }}
-    <a class="f6 link dim br3 ph3 pv2 mb2 dib {{ $.Param "button_text_color" | default "white" }} bg-{{ $.Param "button_color" | default "black-80" }}" href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
+    <a class="f6 link dim br3 ph3 pv2 mb2 dib {{ $.Param "button_text_color" | default "white" }} bg-{{ $.Param "button_color" | default "near-black" }}" href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
   {{ end }}
   </div>
   {{ end }}

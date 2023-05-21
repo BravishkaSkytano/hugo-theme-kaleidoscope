@@ -10,6 +10,7 @@
     <meta name="robots" content="index, follow">
 
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
+    <link rel="stylesheet" href="{{ relURL "/css/colors.css" }}"/>
     
     {{ if .Site.Params.favicon }}
     <link rel="shortcut icon" href="{{ relURL ($.Site.Params.favicon) }}" type="image/x-icon" />
@@ -23,7 +24,7 @@
     {{ end }}
   </head>
 
-  <body class="ma0 {{ $.Param "main_font"  | default "avenir"}} {{ $.Param "body_classes"  | default "bg-near-white"}} {{ $.Param "text_color"  | default "black-80"}}">
+  <body class="ma0 {{ $.Param "main_font"  | default "avenir"}} bg-{{ $.Param "main_bg_color"  | default "near-white"}} {{ $.Param "text_color"  | default "black-80"}}">
     {{ if .IsHome }}{{ partial "header-home.html" . }}{{ else }}{{ partial "header.html" . }}{{ end }}
     <main class="pb7" role="main">
       {{ block "main" . }}{{ end }}

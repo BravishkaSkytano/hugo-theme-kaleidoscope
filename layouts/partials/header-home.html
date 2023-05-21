@@ -4,13 +4,13 @@
     <img src="{{ relURL . }}" class="w100 mw5-ns" alt="{{ $.Site.Title }}" />
   </a>
   {{ else }}
-  <a href="{{ .Site.Home.RelPermalink }}" class="bg-{{ $.Param "text_color"  | default "black-80"}} ba b--black dib pa3 w2 h2 br-100"></a>
+  <a href="{{ .Site.Home.RelPermalink }}" class="bg-{{ $.Param "text_color"  | default "near-black"}} ba b--black dib pa3 w2 h2 br-100"></a>
   {{ end }}
   <h1 class="mt2 mb0 i fw1 f1 {{ $.Param "title_font"  | default "baskerville"}}">{{ .Site.Title }}</h1>
   {{ with .Params.description }}<h2 class="mt2 mb0 f6 fw4 ttu tracked">{{ . }}</h2>{{ end }}
   <nav class="bt bb tc mw7 center mt4">
   {{ if .Site.Menus.main }}{{ range .Site.Menus.main }}
-    <a class="f6 f5-l link dim {{ $.Param "text_color"  | default "black-80"}} dib pa3 ph4-l" href="{{ .URL }}">
+    <a class="f6 f5-l link dim {{ $.Param "text_color"  | default "near-black"}} dib pa3 ph4-l" href="{{ .URL }}">
       {{ .Name }}
     </a>
   {{ end }}{{ end }}

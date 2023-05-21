@@ -9,7 +9,7 @@
   <ul class="list tc ph3 ph5-ns pv4">
   {{ range .Data.Terms.Alphabetical }}
     <li class="dib mr1 mb2">
-      <a href="{{ .Page.RelPermalink }}" class="f6 f5-ns b db link dim br3 ph3 pv2 mb2 dib {{ $.Param "button_text_color" | default "white" }} bg-{{ $.Param "button_color" | default "black-80" }}">{{ .Page.Title }} ({{ .Count }})</a>
+      <a href="{{ .Page.RelPermalink }}" class="f6 f5-ns b db link dim br3 ph3 pv2 mb2 dib {{ $.Param "button_text_color" | default "white" }} bg-{{ $.Param "button_color" | default "near-black" }}">{{ .Page.Title }} ({{ .Count }})</a>
     </li>
   {{ end }}
   </ul>
