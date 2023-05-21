@@ -1,56 +1,34 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Language }}" class="default">
-<head>
-	<title>{{ if not .IsHome }}{{ .Title | title }} | {{ end }}{{ .Site.Title }}</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="robots" content="index, follow">
-	<meta charset="utf-8"><link rel="canonical" href="{{ .Site.BaseURL }}">
+<html lang="{{ .Site.Language }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{ block "title" . }}{{ with .Params.Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
+    {{ hugo.Generator }}
+    <meta name="robots" content="index, follow">
 
-  <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} RSS" href="/index.xml">
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
+    <link rel="stylesheet" href="{{ relURL "/css/colors.css" }}"/>
+    
+    {{ if .Site.Params.favicon }}
+    <link rel="shortcut icon" href="{{ relURL ($.Site.Params.favicon) }}" type="image/x-icon" />
+    {{ end }}
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css">
-  {{ $sass := resources.Get "scss/kaleidoscope.scss" }}
-  {{ $style := $sass | resources.ToCSS }}
-  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
-	{{ with .Site.Params.favicon }}<link rel="icon" href="{{ . }}">
-	{{ end -}}
-
-  <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
-	{{ if isset .Params "tags" }}<meta name="keywords" content="{{ with .Params.tags }}{{ delimit . ", " }}{{ end }}">
-	{{ end -}}
-
-  <link href="{{ relURL "fontawesome/css/fontawesome.min.css" }}" rel="stylesheet">
-  <link href="{{ relURL "fontawesome/css/solid.min.css" }}" rel="stylesheet">
-
-  <script type="text/javascript">
-    const hour = (new Date()).getHours();
-      var element = document.documentElement;
-      if (hour >= 5 && hour < 7) {
-        element.classList.add("morning");
-      } else if (hour >= 7 && hour < 17) {
-        element.classList.add("day");
-      } else if (hour >= 17 && hour < 19) {
-        element.classList.add("evening");
-      } else {
-        element.classList.add("night");
-      }
-  </script>
-</head>
-<body id="layout">
-  <div class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-lg-1-4">
-      {{ partial "sidebar" . }}
-    </div>
-    <div class="content pure-u-1 pure-u-lg-3-4">
-      {{ block "main" . }}
-      {{ .Content }}
+    {{ if .OutputFormats.Get "RSS" }}
+    {{ with .OutputFormats.Get "RSS" }}
+      <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+      <link href="{{ .RelPermalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
       {{ end }}
-      {{ partial "footer" . }}
-    </div>
-    <a href="#" class="pure-button back2top">
-      <img src="/images/up-arrow-svgrepo-com.svg" />
-    </a>
-  </div>
-</body>
+    {{ end }}
+  </head>
+
+  <body class="ma0 {{ $.Param "main_font"  | default "avenir"}} bg-{{ $.Param "main_bg_color"  | default "near-white"}} {{ $.Param "text_color"  | default "black-80"}}">
+    {{ if .IsHome }}{{ partial "header-home.html" . }}{{ else }}{{ partial "header.html" . }}{{ end }}
+    <main class="pb7" role="main">
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ block "footer" . }}{{ partialCached "footer.html" . }}{{ end }}
+  </body>
 </html>

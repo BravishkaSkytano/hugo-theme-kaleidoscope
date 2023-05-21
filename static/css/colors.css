@@ -1,0 +1,6 @@
+@media (prefers-color-scheme:dark) {
+  html { filter: invert(90%) hue-rotate(180deg); }
+  pre { filter: invert(6%); }
+  img { filter: brightness(.8) contrast(1.2); }
+  .link:hover { opacity: 1; }
+}

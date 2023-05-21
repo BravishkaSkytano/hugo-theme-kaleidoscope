@@ -1,8 +1,9 @@
 ---
 title: "Featured Post"
 date: 2023-04-25T15:11:21-04:00
-categories: []
-tags: []
+description: "This is a description"
+categories: ["featured"]
+tags: ["star", "dazzling"]
 #toc: true
 featured: true
 ---
