@@ -1,7 +1,7 @@
 {{ define "main" }}
 
-<article class="measure db center f5 f4-ns">
-  <header class="mt4 w-100 tc-l">
+<article class="pa3 pa4-ns nested-copy-line-height measure db center f5 f4-ns">
+  <header class="mt4 w-100 tc">
     <h1 class="f1 mt3 mb1 {{ $.Param "header_font"  | default "baskerville"}}">
       {{ .Title }}
     </h1>
@@ -16,21 +16,23 @@
       </strong>
     </p>
     {{ end }}
-    {{ if not .Date.IsZero }}
-    <time class="f6 mv4 dib tracked" {{ printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr }}>
-      {{- .Date | time.Format (default "Jan 2, 2006" .Site.Params.date_format) -}}
-    </time>
-    {{ end }}{{ if ne .Lastmod .Date }}
-    <span class="f6 mv4 dib tracked">- Updated: </span>
-    <time class="f6 mv4 dib tracked" {{ printf `datetime="%s"` (.Lastmod.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr }}>
-      {{- .Lastmod | time.Format (default "Jan 2, 2006" .Site.Params.date_format) -}}
-    </time>
-    {{ end }}
-    <span class="f6 mv4 dib tracked"> - {{ .ReadingTime }} min.</span>
-    <span class="f6 mv4 dib tracked"> - {{ .WordCount }} words</span>
-    {{ with .GetTerms "categories" }}-{{ range . }}
-    <a class="f6 link dim ttc br2 pa1 dib tracked {{ $.Param "button_text_color" | default "white" }} bg-{{ $.Param "button_color" | default "near-black" }}" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-    {{ end }}{{ end }}
+    <div class="f6 mv4 dib tracked">
+      {{ if not .Date.IsZero }}
+      <time {{ printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr }}>
+        {{- .Date | time.Format (default "Jan 2, 2006" .Site.Params.date_format) -}}
+      </time>
+      {{ end }}{{ if ne .Lastmod .Date }}
+      <span>- Updated: </span>
+      <time {{ printf `datetime="%s"` (.Lastmod.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr }}>
+        {{- .Lastmod | time.Format (default "Jan 2, 2006" .Site.Params.date_format) -}}
+      </time>
+      {{ end }}
+      <span> - {{ .ReadingTime }} min.</span>
+      <span> - {{ .WordCount }} words</span>
+      {{ with .GetTerms "categories" }}-{{ range . }}
+      <a class="f6 link dim ttc br2 pa1 dib tracked {{ $.Param "button_text_color" | default "white" }} bg-{{ $.Param "button_color" | default "near-black" }}" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+      {{ end }}{{ end }}
+    </div>
   </header>
   <div class="pb3">
     {{ partial "toc" . }}
