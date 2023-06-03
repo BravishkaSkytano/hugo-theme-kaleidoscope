@@ -1,7 +1,7 @@
 <header class="tc pv4">
   {{ with .Site.Params.site_logo }}
   <a href="{{ .Site.Home.RelPermalink }}" class="dib pa3 w2 h2">
-    <img src="{{ relURL . }}" class="w100 mw5-ns" alt="{{ $.Site.Title }}" />
+    <img src="{{ relLangURL . }}" class="w100 mw5-ns" alt="{{ $.Site.Title }}" />
   </a>
   {{ else }}
   <a href="{{ .Site.Home.RelPermalink }}" class="bg-{{ $.Param "text_color"  | default "near-black"}} ba b--black dib pa3 w2 h2 br-100"></a>

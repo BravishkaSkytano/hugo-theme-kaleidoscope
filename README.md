@@ -9,6 +9,7 @@ I love a colorful site (as long as it's actually readable) and I thought it woul
 * Customizable colors and fonts
 * Darkmode
 * Supports lastmod
+* Multilingual mode
 * Featured posts with `featured: true` in frontmatter
 * Related posts
 * Taxonomy pages

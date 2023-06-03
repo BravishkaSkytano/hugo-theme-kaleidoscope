@@ -42,7 +42,7 @@
           {{ end }}
         </ul>
         {{ else }}
-        <p class="fw1 i tc mt4 mt5-l f4 f3-l"><a class="{{ $.Param "link_color"  | default "light-purple"}}" href="{{ relURL "/" }}">Return to the homepage</a></p>
+        <p class="fw1 i tc mt4 mt5-l f4 f3-l"><a class="{{ $.Param "link_color"  | default "light-purple"}}" href="{{ relLangURL "" }}">Return to the homepage</a></p>
         {{ end }}
       </section>
     </main>
