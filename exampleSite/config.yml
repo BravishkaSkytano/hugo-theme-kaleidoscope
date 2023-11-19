@@ -1,6 +1,6 @@
 baseURL: "https://mynewhugosite.com"
 title: "My Hugo Site"
-theme: "hugo-theme-kaleidoscope"
+theme: "kaleidoscope"
 
 params:
   mainSections: ['posts']
@@ -10,46 +10,34 @@ params:
   description: "The most colorful Hugo theme you will ever find."
   featured_posts: true
   
-  # choose fonts from
-  main_font: ""
-  title_font: ""
-  header_font: ""
-  
-  # choose colors from https://tachyons.io/docs/themes/skins/
-  main_bg_color: ""
-  text_color: ""
-  card_bg_color: ""
-  link_color: ""
-  button_color: ""
-  button_text_color: ""
-  # Lower the color brightness by percentage for darkmode
-  dm_brightness: ""
+  # View fonts on http://tachyons.io/docs/typography/font-family/
+  # Options: sans-serif, serif, system-sans-serif, code, courier, helvitica,
+  # avenir, athelas, georgia, times, bodoni, calisto, garamond, baskerville
+  main_font: "avenir"
+  title_font: "georgia"
+  header_font: "baskerville"
 
 menu:
   main:
   -
-    name: "Home"
-    url: "/"
-    weight: 1
-  -
     name: "About"
     url: "/about"
-    weight: 2
+    weight: 1
   -
     name: "Posts"
     url: "/posts"
-    weight: 3
+    weight: 2
   -
     name: "Categories"
     url: "/categories"
-    weight: 4
+    weight: 3
   -
     name: "Tags"
     url: "/tags"
-    weight: 5
+    weight: 4
 
+# lastmod
 enableGitInfo: true
-frontmatter:
   date: ["date", "publishDate", "lastmod"]
   lastmod: ["lastmod", ":git", "date", "publishDate"]
 

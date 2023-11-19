@@ -1,14 +1,14 @@
-# Kaleidoscope: The most colorful Hugo theme you will ever find.
+# Kaleidoscope: The most colorful Hugo theme you will ever find
 
-I love a colorful site (as long as it's actually readable) and I thought it would be fun to create a theme with easily customizable colors!
+I love a colorful site (as long as it's readable) and I thought it would be fun to create a theme with easily customizable colors!
 
 ## Features
 
 * Fully responsive
 * Based on [Tachyons CSS](https://tachyons.io/)
 * Customizable colors and fonts
-* Darkmode
-* Supports lastmod
+* Dark mode (working on it)
+* Supports lastmod (from Git)
 * Multilingual mode
 * Featured posts with `featured: true` in frontmatter
 * Related posts
@@ -31,7 +31,7 @@ In your `config.yml` set `theme:` to kaleidoscope.
 
 For more information on installing themes, refer to [Hugo's official setup guide.](https://gohugo.io/overview/installing/)
 
-### Keeping your site up-to-date when theme is updated using GitHub Actions
+### Keeping your site up-to-date when the theme is updated using GitHub Actions
 
 This works for both Git Submodules and Go Modules, you just need to specify which one you want to use by [enabling and configuring Dependabot](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file).
 
@@ -65,11 +65,22 @@ cp -r themes/kaleidoscope/exampleSite/config.yml ./config.yml
 
 Most of it is easy to understand, especially if you have worked with Hugo before. The only ones that you might want to change are the ones that have to do with Tachyons itself. Of course, it is all completely optional and you don't have to change it if you are happy with the default settings.
 
+## Colors
+
+To use your own colorscheme, you need to add `colors.css` to `static/css` in your root website folder.
+
+```bash
+cp -r themes/kaleidoscope/static/colors.css ./static/css/colors.css
+```
+
+Everything is easy, you don't need any coding knowledge. Just follow the instructions in the comments and you should be okay. If you need any help, go ahead and [open an issue.](https://github.com/BravishkaSkytano/hugo-theme-kaleidoscope/issues/new/choose)
+
 ## To-Do
 
-- [ ] Add comments
-- [ ] Configure search
-- [ ] Configure RSS
-- [X] Featured posts
-- [X] Related posts
-- [X] TOC
+* [X] Light/Dark toggle
+* [ ] Add comments
+* [ ] Configure search
+* [ ] Configure RSS
+* [X] Featured posts
+* [X] Related posts
+* [X] TOC

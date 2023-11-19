@@ -6,13 +6,14 @@
   </section>
   {{ end }}{{ if .Site.Params.featured_posts }}
   <section class="flex-ns flex-wrap justify-around mt5 pv4 bb b--black-10 ph3 ph0-l">
-    {{ range where (where .Site.RegularPages.ByLastmod "Type" "in" site.Params.mainSections) ".Params.featured" "=" true }}
+    {{ range where (where .Site.RegularPages "Type" "in" site.Params.mainSections) ".Params.featured" "=" true }}
       {{ partial "posts-list.html" . }}
     {{ end }}
   </section>
   {{ end }}
   <section class="flex-ns flex-wrap justify-around mt5">
-  {{ range first 15 (where (where .Site.RegularPages.ByLastmod "Type" "in" site.Params.mainSections) ".Params.featured" "!=" true ) }}
+  {{ range first 15 (where (where .Site.RegularPages "Type" "in" site.Params.mainSections) ".Params.featured" "!="
+  true ) }}
     {{ partial "posts-list.html" . }}
   {{ end }}
   </section>

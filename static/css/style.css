@@ -1,0 +1,16 @@
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.btn {
+  background-color: var(--button-color);
+  color: var(--button-text-color);
+}
+
+header a, nav a, footer a { color: var(--text-color); }
+.card { background-color: var(--card-background-color); }
+
+@media (prefers-color-scheme: dark) {
+  iframe, img, video { filter: brightness(.8) contrast(1.2); }
+}

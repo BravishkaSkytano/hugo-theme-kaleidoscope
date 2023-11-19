@@ -1,50 +1,61 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language }}">
   <head>
+    <!--Meta-->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>{{ block "title" . }}{{ with .Params.Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
+    <meta name="color-scheme" content="dark light">
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
     {{ hugo.Generator }}
     <meta name="robots" content="index, follow">
 
+    <!--CSS-->
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
-    <link rel="stylesheet" href="{{ relURL "/css/colors.css" }}"/>
+    <link rel="stylesheet" href="{{ relURL "/css/colors.css" }}" />
+    <link rel="stylesheet" href="{{ relURL "/css/style.css" }}" />
     
+    <!--Favicons-->
     {{ if .Site.Params.favicon }}
     <link rel="shortcut icon" href="{{ relURL ($.Site.Params.favicon) }}" type="image/x-icon" />
     {{ end }}
 
+    <!--RSS-->
     {{ if .OutputFormats.Get "RSS" }}
     {{ with .OutputFormats.Get "RSS" }}
       <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
       <link href="{{ .RelPermalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
       {{ end }}
     {{ end }}
+
   </head>
 
-  <body class="{{ $.Param "main_font"  | default "avenir"}} bg-{{ $.Param "main_bg_color"  | default "near-white"}} {{ $.Param "text_color"  | default "black-80"}}">
+  <body class="{{ $.Param "main_font" }}">
     <main role="main">
       <section class="vh-100">
         <header class="tc ph5 lh-copy">
-            <h1 class="f1 f-headline-l code mb3 fw9 dib tracked-tight {{ $.Param "card_bg_color"  | default "light-purple"}}">404</h1>
+            <h1 class="f1 f-headline-l code mb3 fw9 dib tracked-tight">404</h1>
             <h2 class="tc f1-l fw1">Sorry, we can't find the page you are looking for.</h2>
         </header>
         {{ if .Site.Menus.main }}
         <p class="fw1 i tc mt4 mt5-l f4 f3-l">Are you looking for one of these?</p>
         <ul class="list tc pl0 w-100 mt5">
+          <li class="dib">
+            <a class="f5 f4-ns link db pv2 ph3" href="{{ relLangURL "" }}">Home</a>
+          </li>
           {{ range .Site.Menus.main }}
           <li class="dib">
-            <a class="f5 f4-ns link black db pv2 ph3 hover-{{ $.Param "link_color"  | default "light-purple"}}" href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}
+            <a class="f5 f4-ns link db pv2 ph3" href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}
             </a>
           </li>
           {{ end }}
         </ul>
         {{ else }}
-        <p class="fw1 i tc mt4 mt5-l f4 f3-l"><a class="{{ $.Param "link_color"  | default "light-purple"}}" href="{{ relLangURL "" }}">Return to the homepage</a></p>
+        <p class="fw1 i tc mt4 mt5-l f4 f3-l"><a class="f5 f4-ns link db pv2 ph" href="{{ relLangURL "" }}">Return to the homepage</a></p>
         {{ end }}
       </section>
     </main>
+    <script src="{{ relURL "/js/darkmode.js" }}"></script>
   </body>
 </html>
