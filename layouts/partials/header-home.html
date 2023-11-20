@@ -4,17 +4,16 @@
     <img src="{{ relLangURL . }}" class="w100 mw5-ns" alt="{{ $.Site.Title }}" />
   </a>
   {{ else }}
-  <a href="{{ .Site.Home.RelPermalink }}" class="card ba b--black dib pa3 w2 h2 br-100"></a>
+  <a href="{{ .Site.Home.RelPermalink }}" class="btn ba dib pa3 w2 h2 br-100"></a>
   {{ end }}
   <h1 class="mt2 mb0 i fw1 f1 {{ $.Param "header_font" }}">{{ .Site.Title }}</h1>
-  {{ with .Params.description }}<h2 class="mt2 mb0 f6 fw4 ttu tracked">{{ . }}</h2>{{ end }}
+  {{ with .Site.Params.description }}<h2 class="mt2 mb0 f6 fw4 ttu tracked">{{ . }}</h2>{{ end }}
   <nav class="bt bb tc mw7 center mt4">
-  {{ if .Site.Menus.main }}{{ range .Site.Menus.main }}
+    {{ with site.Menus.main }}{{ range . }}
     <a class="f6 f5-l link dim dib pa3 ph4-l" href="{{ .URL }}">
       {{ .Name }}
     </a>
-  {{ end }}{{ end }}
+    {{ end }}{{ end }}
     <span class="theme-btn f6 f5-l link dim dib pa3 ph4-l">&#x1f4a1;</span>
   </nav>
-  <p>{{ .Site.Params.description }}</p>
 </header>

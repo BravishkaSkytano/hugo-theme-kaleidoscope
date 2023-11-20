@@ -9,6 +9,7 @@ params:
   site_logo: ""
   description: "The most colorful Hugo theme you will ever find."
   featured_posts: true
+  #fontawesome: 
   
   # View fonts on http://tachyons.io/docs/typography/font-family/
   # Options: sans-serif, serif, system-sans-serif, code, courier, helvitica,
@@ -17,27 +18,38 @@ params:
   title_font: "georgia"
   header_font: "baskerville"
 
+# https://gohugo.io/content-management/menus/
 menu:
   main:
-  -
-    name: "About"
-    url: "/about"
-    weight: 1
-  -
-    name: "Posts"
-    url: "/posts"
-    weight: 2
-  -
-    name: "Categories"
-    url: "/categories"
-    weight: 3
-  -
-    name: "Tags"
-    url: "/tags"
-    weight: 4
+  - 
+    name: About
+    pageRef: /about
+    weight: 10
+  - 
+    name: Posts
+    pageRef: /posts
+    weight: 20
+  - 
+    name: Categories
+    pageRef: /categories
+    weight: 30
+  - 
+    name: Tags
+    pageRef: /tags
+    weight: 40
+
+  footer: # fonts are from FontAwesome
+  - 
+    name: Github
+    params:
+      rel: external
+    pre: <i class="fa-brands fa-github"></i>
+    url: https://github.com/BravishkaSkytano
+    weight: 30
 
 # lastmod
 enableGitInfo: true
+frontmatter:
   date: ["date", "publishDate", "lastmod"]
   lastmod: ["lastmod", ":git", "date", "publishDate"]
 

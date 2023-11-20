@@ -1,9 +1,9 @@
-/* choose colors from https://tachyons.io/docs/themes/skins/ */
+/* Choose colors from https://tachyons.io/docs/themes/skins/ */
+/* Under each color, there is a hex code, use those here. */
 body {
   /* Default colors, preferably a light theme */
   --background-color: #F4F4F4; /* near-white */
   --text-color: #111111; /* near-black */
-  --card-background-color: #EEEEEE; /* light-gray */
   --link-color: #111111; /* near-black */
   --button-color: #111111; /* near-black */
   --button-text-color: #FFFFFF; /* white */
@@ -13,7 +13,6 @@ body.dark-mode {
   /* Dark theme */
   --background-color: #111111; /* near-black */
   --text-color: #AAAAAA; /* light-silver */
-  --card-background-color: #333333; /* dark-gray */
   --link-color: #AAAAAA; /* near-black */
   --button-color: #FFFFFF; /* white */
   --button-text-color: #111111; /* near-black */
@@ -29,7 +28,6 @@ Go ahead, copy and paste.
   body {
     --background-color: #111111;
     --text-color: #AAAAAA;
-    --card-background-color: #333333;
     --link-color: #AAAAAA;
     --button-color: #FFFFFF;
     --button-text-color: #111111;
@@ -38,7 +36,6 @@ Go ahead, copy and paste.
   body.light-mode {
     --background-color: #F4F4F4;
     --text-color: #111111;
-    --card-background-color: #EEEEEE;
     --link-color: #111111;
     --button-color: #111111;
     --button-text-color: #FFFFFF;

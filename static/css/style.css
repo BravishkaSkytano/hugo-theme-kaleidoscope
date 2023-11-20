@@ -8,6 +8,7 @@ body {
   color: var(--button-text-color);
 }
 
+a { color: var(--link-color); }
 header a, nav a, footer a { color: var(--text-color); }
 .card { background-color: var(--card-background-color); }
 

@@ -7,9 +7,11 @@
     {{ end }}
   </a>
   <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
-    {{ if .Site.Menus.main }}{{ range .Site.Menus.main }}
+  {{ with site.Menus.main }}
+    {{ range . }}
     <a class="link dim f6 f5-l dib mr3 mr4-l" href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}</a>
-    {{ end }}{{ end }}
+    {{ end }}
     <span class="theme-btn link dim f6 f5-l">&#x1f4a1;</span>
+  {{ end }}
   </div>
 </nav>

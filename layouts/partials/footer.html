@@ -1,8 +1,15 @@
 <footer class="pv4 ph3 ph5-m ph6-l">
-  <small class="f6 db tc">© {{ dateFormat "2006" now }} <b class="ttu">{{ .Site.Title }}</b>. All Rights Reserved</small>
-  <div class="tc mt3">
-    {{ range.Site.Menus.main }}
-    <a href="{{ .URL }}" title="{{ .Name }}" class="f6 f5-l dib ph2 link dim">{{ .Name }}</a>
-    {{ end }}
-  </div>
+  <small class="f6 f5-l db tc">
+    © {{ dateFormat "2006" now }} <b class="ttu">{{ .Site.Title }}</b>. All Rights Reserved.
+  </small>
+  <small class="f6 f5-l db tc pt2">
+    Made with <i class="fa-solid fa-heart-pulse"></i> using <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/BravishkaSkytano/hugo-theme-kaleidoscope">Kaleidoscope</a>
+  </small>
+  <nav class="tc pt2">
+    {{ with site.Menus.footer }}{{ range . }}
+    <a href="{{ .URL }}" class="f6 f5-l dib ph2 link dim">
+      {{ .Pre }}
+    </a>
+    {{ end }}{{ end }}
+  </nav>
 </footer>

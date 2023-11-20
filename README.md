@@ -80,7 +80,9 @@ Everything is easy, you don't need any coding knowledge. Just follow the instruc
 * [X] Light/Dark toggle
 * [ ] Add comments
 * [ ] Configure search
-* [ ] Configure RSS
+* [X] Configure RSS
 * [X] Featured posts
 * [X] Related posts
 * [X] TOC
+* [X] Add FontAwesome
+* [X] Socials
